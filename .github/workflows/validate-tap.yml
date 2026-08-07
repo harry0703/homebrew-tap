@@ -1,0 +1,51 @@
+name: Validate Tap
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: macos-latest
+    steps:
+      - name: Check out tap
+        uses: actions/checkout@v6
+
+      - name: Set up Homebrew
+        # The official action registers this repository as a tap so validation
+        # runs against the same content that users install.
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Prepare Homebrew test environment
+        run: |
+          brew test-bot --only-cleanup-before
+          brew test-bot --only-setup
+
+      - name: Validate complete tap
+        # test-bot checks formatting, syntax, workflows, formulae, casks, and
+        # Homebrew audit rules across the complete tap.
+        run: brew test-bot --only-tap-syntax
+
+      - name: Verify package downloads
+        # Fetch every declared package so new projects cannot bypass immutable
+        # URL and SHA-256 verification.
+        shell: bash
+        run: |
+          shopt -s nullglob
+
+          for cask_file in Casks/*.rb; do
+            cask_name="${cask_file##*/}"
+            brew fetch --cask "${GITHUB_REPOSITORY_OWNER}/tap/${cask_name%.rb}"
+          done
+
+          for formula_file in Formula/*.rb; do
+            formula_name="${formula_file##*/}"
+            brew fetch "${GITHUB_REPOSITORY_OWNER}/tap/${formula_name%.rb}"
+          done
