@@ -8,6 +8,7 @@ Homebrew formulae and casks for projects maintained by
 | Package | Type | Description | Install |
 | --- | --- | --- | --- |
 | [MangoDisk](https://github.com/harry0703/MangoDisk) | Cask | Safety-first disk cleaner and disk space analyzer | `brew install --cask harry0703/tap/mangodisk` |
+| [MangoDisk CLI](https://github.com/harry0703/MangoDisk) | Formula | Safety-first disk cleanup command-line tool | `brew install harry0703/tap/mangodisk-cli` |
 
 Using a fully qualified package name automatically adds this tap. To add it
 manually instead, run:
@@ -21,6 +22,7 @@ operations, for example:
 
 ```sh
 brew upgrade --cask mangodisk
+brew upgrade mangodisk-cli
 ```
 
 ## Package notes
@@ -37,6 +39,20 @@ Remove MangoDisk together with its settings, history, logs, and caches:
 
 ```sh
 brew uninstall --zap --cask mangodisk
+```
+
+### MangoDisk CLI
+
+Run a read-only cleanup scan after installation:
+
+```sh
+mangodisk clean
+```
+
+Remove the command-line tool:
+
+```sh
+brew uninstall mangodisk-cli
 ```
 
 ## Maintenance
