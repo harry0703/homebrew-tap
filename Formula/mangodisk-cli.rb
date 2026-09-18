@@ -1,8 +1,8 @@
 class MangodiskCli < Formula
   desc "Safety-first disk cleanup command-line tool"
   homepage "https://mangodisk.app/"
-  url "https://github.com/harry0703/MangoDisk/releases/download/v1.1.2/MangoDisk-1.1.2-macos-cli.tar.gz"
-  sha256 "8795083fdfbde22310206fe6ea68ee7d9bc13444e0b50475bf59d9903d702915"
+  url "https://github.com/harry0703/MangoDisk/releases/download/v1.1.3/MangoDisk-1.1.3-macos-cli.tar.gz"
+  sha256 "926c81e0ecec52fa68e3bfc901a248825d4bb25415670bac504652c73614fe83"
   license "GPL-3.0-only"
 
   depends_on :macos
