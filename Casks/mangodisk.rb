@@ -26,9 +26,9 @@ cask "mangodisk" do
     url "https://github.com/harry0703/MangoDisk/releases/download/v#{version}/MangoDisk-#{version}-linux-#{arch}.AppImage"
 
     app_image "MangoDisk-#{version}-linux-#{arch}.AppImage", target: "MangoDisk.AppImage"
-    binary "MangoDisk-#{version}-linux-#{arch}.AppImage", target: "mangodisk-gui"
+    binary "MangoDisk-#{version}-linux-#{arch}.AppImage", target: "mangodisk"
 
-    caveats "Start MangoDisk from your applications menu or run: mangodisk-gui"
+    caveats "Start MangoDisk from your applications menu or run: mangodisk"
   end
 
   name "MangoDisk"
