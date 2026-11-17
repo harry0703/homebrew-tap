@@ -1,11 +1,11 @@
 cask "mangodisk" do
   arch arm: "arm64", intel: "x64"
 
-  version "2.0.0"
-  sha256 arm:          "abcc30a4ebcefd969f7aaa2272c9794867df9f9ea7adbeeb902a2f078cd4e11d",
-         intel:        "abcc30a4ebcefd969f7aaa2272c9794867df9f9ea7adbeeb902a2f078cd4e11d",
-         arm64_linux:  "f6f2422ed39ef83869e70436ce8c35b6dd7523015665f17735eb98d28688653a",
-         x86_64_linux: "f86de72a6955f951d11ddf79a6a54696cc793c575ce2372ab5fa8beb11ef22b2"
+  version "2.1.0"
+  sha256 arm:          "5a0c1c04ca6fe16c031087a0e0bdefb020e34dadc837475434476f84b1f897f8",
+         intel:        "5a0c1c04ca6fe16c031087a0e0bdefb020e34dadc837475434476f84b1f897f8",
+         arm64_linux:  "c69f445010fffae14f2bf6c43d4b21d1d8314c2662deb6f4c45fb2cbba18248f",
+         x86_64_linux: "c3fa5ff4b5cfddea2114b7e063c6177f763e4a06d20a6d9d287c6c9179bd2ba8"
 
   on_macos do
     url "https://github.com/harry0703/MangoDisk/releases/download/v#{version}/MangoDisk-#{version}-macos.dmg"
